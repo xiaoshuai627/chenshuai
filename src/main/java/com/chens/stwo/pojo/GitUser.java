@@ -2,7 +2,7 @@ package com.chens.stwo.pojo;
 
 import java.util.Date;
 
-public class User {
+public class GitUser {
 
     private String name;
     private int age;
