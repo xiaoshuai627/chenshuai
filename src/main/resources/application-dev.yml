@@ -3,4 +3,10 @@ server:
 user:
    id: 5a9e6ad2e5ca0b6eecf2
    client_secret: dfed98d5887d2a2ebc4a0f8e1300028cdfdc6429
-   redirect_uri: http://localhost:8080/callback
+   redirect_uri: http://localhost:8087/callback
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/xiaoshuai?serverTimezone=UTC&useSSL=true
+    username: root
+    password: root942565
+    driver-class-name: com.mysql.cj.jdbc.Driver

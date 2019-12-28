@@ -2,7 +2,7 @@ package com.chens.stwo.provider;
 
 import com.alibaba.fastjson.JSON;
 import com.chens.stwo.pojo.AccessToken;
-import com.chens.stwo.pojo.GitUser;
+import com.chens.stwo.pojo.User;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
@@ -32,15 +32,15 @@ public class GithubProvider {
 
 
     //获取用户信息
-    public GitUser getUser(String accessToken) {
+    public User getUser(String accessToken) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?"+accessToken)
                 .build();
         try (Response response = client.newCall(request).execute()) {
             //使用JSON将响应的字符串直接转换成Uesr对象
-            GitUser gitUser = JSON.parseObject(response.body().string(), GitUser.class);
-            return gitUser;
+            User user = JSON.parseObject(response.body().string(), User.class);
+            return user;
         }catch (IOException e){
             e.printStackTrace();
         }

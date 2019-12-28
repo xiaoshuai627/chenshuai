@@ -1,5 +1,8 @@
 spring:
   profiles:
     active: dev
-server:
-  port: 8088
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/xiaoshuai?serverTimezone=UTC&useSSL=false
+#    data-username: root
+#    data-password: root942565
+#    driver-class-name: com.mysql.cj.jdbc.Driver
