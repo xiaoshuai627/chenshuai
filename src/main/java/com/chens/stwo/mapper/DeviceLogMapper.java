@@ -1,0 +1,46 @@
+package com.chens.stwo.mapper;
+
+import com.chens.stwo.entiy.DeviceLog;
+import org.apache.ibatis.annotations.*;
+
+/**
+ * ClassName : DeviceLogMapper
+ * package : com.chens.stwo.mapper
+ * Description :TODO
+ *
+ * @date :2020/4/6 16:06
+ * @Author :xiaoshuai
+ */
+@Mapper
+public interface DeviceLogMapper {
+
+    @Insert("insert into devices_log (devices_id,system_version,screen_msg,brand,cpu_msg," +
+            "memory,state,model,metrics,operator,create_time,user) " +
+            "values(#{deviceId},#{systemVersion}, #{screenMsg}, #{brand}, #{cpuMsg}," +
+            " #{memory}, #{state}, #{model},#{metrics},#{operator},#{createTime},#{user});\n")
+    int add(DeviceLog deviceLog);
+
+
+    @Results(id = "deviceslog", value = {
+            @Result(property = "deviceId", column = "devices_id"),
+            @Result(property = "systemVersion", column = "system_version"),
+            @Result(property = "screenMsg", column = "screen_msg"),
+            @Result(property = "brand", column = "brand"),
+            @Result(property = "cpuMsg", column = "cpu_msg"),
+            @Result(property = "memory", column = "memory"),
+            @Result(property = "state", column = "state"),
+            @Result(property = "model", column = "model"),
+            @Result(property = "metrics", column = "metrics"),
+            @Result(property = "operator", column = "operator"),
+            @Result(property = "createTime", column = "create_time"),
+            @Result(property = "updateTime", column = "update_time"),
+            @Result(property = "user", column = "user")
+    })
+
+
+    @Update("update devices_log set state=#{state} where device_id=#{deviceId}")
+    int updateDevicelogByDeviceID(@Param("state") int state, @Param("deviceid") String deviceId);
+
+    @Update("update devices_log set devices_id=#{deviceId},user=#{user}")
+    void updateDevicelog(DeviceLog deviceLog);
+}

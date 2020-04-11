@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: tool
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/xiaoshuai?serverTimezone=UTC&useSSL=false
 #    data-username: root

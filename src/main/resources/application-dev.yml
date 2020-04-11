@@ -8,5 +8,5 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/xiaoshuai?serverTimezone=UTC&useSSL=true
     username: root
-    password: root942565
+    password: root627
     driver-class-name: com.mysql.cj.jdbc.Driver
