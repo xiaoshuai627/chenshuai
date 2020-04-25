@@ -1,5 +1,7 @@
 package com.chens.stwo.service;
 
+import com.chens.stwo.entiy.DeviceLog;
+
 /**
  * ClassName : IDeviceService
  * package : com.chens.stwo.service
@@ -10,5 +12,8 @@ package com.chens.stwo.service;
  */
 public interface IDeviceService {
     void addUseRec(String devicesId,String user);
+
     void stopUseDevice(int state, String deviceId);
+
+    DeviceLog findDeviceById(String deviceId);
 }

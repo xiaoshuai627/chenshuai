@@ -20,8 +20,9 @@ public interface DeviceLogMapper {
             " #{memory}, #{state}, #{model},#{metrics},#{operator},#{createTime},#{user});\n")
     int add(DeviceLog deviceLog);
 
-
+    @Select("select * from devices_log where devices_id=#{deviceId}")
     @Results(id = "deviceslog", value = {
+            @Result(property = "id", column = "id"),
             @Result(property = "deviceId", column = "devices_id"),
             @Result(property = "systemVersion", column = "system_version"),
             @Result(property = "screenMsg", column = "screen_msg"),
@@ -36,6 +37,7 @@ public interface DeviceLogMapper {
             @Result(property = "updateTime", column = "update_time"),
             @Result(property = "user", column = "user")
     })
+    DeviceLog findDeviceById(@Param("deviceId") String deviceId);
 
 
     @Update("update devices_log set state=#{state} where device_id=#{deviceId}")

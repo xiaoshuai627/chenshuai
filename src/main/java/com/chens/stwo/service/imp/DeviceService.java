@@ -47,4 +47,9 @@ public class DeviceService implements IDeviceService {
         deviceLogMapper.updateDevicelogByDeviceID(state,deviceId);
 
     }
+
+    @Override
+    public DeviceLog findDeviceById(String deviceId) {
+        return deviceLogMapper.findDeviceById(deviceId);
+    }
 }
