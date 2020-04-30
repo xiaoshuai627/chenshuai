@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * ClassName : DeviceSearchController
  * package : com.chens.stwo.controller
@@ -27,5 +29,10 @@ public class DeviceSearchController {
     public String findDeviceById(@RequestParam("deviceId") String deviceId) {
         DeviceLog deviceLog = deviceService.findDeviceById(deviceId);
         return deviceLog.toString();
+    }
+
+    @GetMapping(value = "/findAllDeviceslog")
+    public List<DeviceLog> findAllDeviceslog(@RequestParam("deviceId") String deviceId, @RequestParam("user") String user) {
+        return deviceService.findAllDeviceslog(deviceId,user);
     }
 }

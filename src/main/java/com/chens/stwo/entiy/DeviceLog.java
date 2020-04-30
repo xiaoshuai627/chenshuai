@@ -23,7 +23,10 @@ public class DeviceLog {
     private Date updateTime;
     private String user;
 
-    public DeviceLog(String deviceId, String user,Date createTime) {
+//    public DeviceLog() {
+//    }
+
+    public DeviceLog(String deviceId, String user, Date createTime) {
         this.deviceId = deviceId;
         this.user = user;
         this.createTime = createTime;

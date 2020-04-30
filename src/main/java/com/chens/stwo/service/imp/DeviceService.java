@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -29,7 +30,6 @@ public class DeviceService implements IDeviceService {
         DeviceData deviceData = manageMapper.getDeviceById(devicesId);
         //修改手机状态
         manageMapper.updateDeviceState(2, devicesId);
-
 
         //添加使用记录
         DeviceLog deviceLog = new DeviceLog(devicesId, user, new Date());
@@ -52,4 +52,11 @@ public class DeviceService implements IDeviceService {
     public DeviceLog findDeviceById(String deviceId) {
         return deviceLogMapper.findDeviceById(deviceId);
     }
+
+    @Override
+    public List<DeviceLog> findAllDeviceslog(String deviceId, String user) {
+        return deviceLogMapper.findAllDeviceslog(deviceId,user);
+    }
+
+
 }

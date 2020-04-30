@@ -9,7 +9,7 @@ stf:
   host: http://www.baidu.com
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/cloud_devices?serverTimezone=UTC&useSSL=true
+    url: jdbc:mysql://localhost:3306/learndb?serverTimezone=UTC&useSSL=true
     username: root
-    password: root627
+    password: root942565
     driver-class-name: com.mysql.cj.jdbc.Driver

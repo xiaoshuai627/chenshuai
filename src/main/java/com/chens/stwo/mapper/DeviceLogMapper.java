@@ -3,6 +3,8 @@ package com.chens.stwo.mapper;
 import com.chens.stwo.entiy.DeviceLog;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 /**
  * ClassName : DeviceLogMapper
  * package : com.chens.stwo.mapper
@@ -19,6 +21,7 @@ public interface DeviceLogMapper {
             "values(#{deviceId},#{systemVersion}, #{screenMsg}, #{brand}, #{cpuMsg}," +
             " #{memory}, #{state}, #{model},#{metrics},#{operator},#{createTime},#{user});\n")
     int add(DeviceLog deviceLog);
+
 
     @Select("select * from devices_log where devices_id=#{deviceId}")
     @Results(id = "deviceslog", value = {
@@ -39,9 +42,19 @@ public interface DeviceLogMapper {
     })
     DeviceLog findDeviceById(@Param("deviceId") String deviceId);
 
+    @Select("select * from devices_log where state =0 and devices_id=#{deviceId}")
+    @ResultMap("deviceslog")
+//    @Select("<script>" +
+//            "select * from devices_log" +
+//            "where state = 0" +
+//            "<if test='deviceId != null'>" +
+//            "and devices_id=#{deviceId}" +
+//            " </if>" +
+//            "</script>")
+    List<DeviceLog> findAllDeviceslog(@Param("deviceId") String deviceId, @Param("user") String user);
 
     @Update("update devices_log set state=#{state} where device_id=#{deviceId}")
-    int updateDevicelogByDeviceID(@Param("state") int state, @Param("deviceid") String deviceId);
+    int updateDevicelogByDeviceID(@Param("state") int state, @Param("deviceId") String deviceId);
 
     @Update("update devices_log set devices_id=#{deviceId},user=#{user}")
     void updateDevicelog(DeviceLog deviceLog);
