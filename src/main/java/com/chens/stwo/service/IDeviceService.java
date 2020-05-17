@@ -1,5 +1,6 @@
 package com.chens.stwo.service;
 
+import com.chens.stwo.entiy.DeviceData;
 import com.chens.stwo.entiy.DeviceLog;
 
 import java.util.List;
@@ -13,12 +14,10 @@ import java.util.List;
  * @Author :xiaoshuai
  */
 public interface IDeviceService {
-
     void addUseRec(String devicesId,String user);
 
     void stopUseDevice(int state, String deviceId);
 
     DeviceLog findDeviceById(String deviceId);
 
-    List<DeviceLog> findAllDeviceslog(String deviceId,String user);
 }
