@@ -23,8 +23,8 @@ public interface DeviceLogMapper {
     int add(DeviceLog deviceLog);
 
 
-    @Select("select * from devices_log where devices_id=#{deviceId}")
-    @Results(id = "deviceslog", value = {
+    @Select("select * from devices_log where devices_id=#{deviceId} and state =0")
+    @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "deviceId", column = "devices_id"),
             @Result(property = "systemVersion", column = "system_version"),
@@ -43,7 +43,7 @@ public interface DeviceLogMapper {
     DeviceLog findDeviceById(@Param("deviceId") String deviceId);
 
     @Select("select * from devices_log where state =0 and devices_id=#{deviceId}")
-    @ResultMap("deviceslog")
+//    @ResultMap("deviceslog")
 //    @Select("<script>" +
 //            "select * from devices_log" +
 //            "where state = 0" +

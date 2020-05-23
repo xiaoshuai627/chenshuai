@@ -20,4 +20,5 @@ public interface IDeviceService {
 
     DeviceLog findDeviceById(String deviceId);
 
+    List<DeviceLog> findAllDeviceslog(String deviceId, String user);
 }
