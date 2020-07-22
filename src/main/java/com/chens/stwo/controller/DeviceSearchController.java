@@ -3,10 +3,9 @@ package com.chens.stwo.controller;
 import com.chens.stwo.entiy.DeviceLog;
 import com.chens.stwo.service.IDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * ClassName : DeviceSearchController
@@ -27,5 +26,10 @@ public class DeviceSearchController {
     public String findDeviceById(@RequestParam("deviceId") String deviceId) {
         DeviceLog deviceLog = deviceService.findDeviceById(deviceId);
         return deviceLog.toString();
+    }
+
+    @GetMapping(value = "/findAllDeviceslog")
+    public List<DeviceLog> findAllDeviceslog(@RequestParam("deviceId") String deviceId, @RequestParam("user") String user) {
+        return deviceService.findAllDeviceslog(deviceId,user);
     }
 }
